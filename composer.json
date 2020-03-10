@@ -68,8 +68,7 @@
         ],
         "post-install-cmd": [
              "php artisan clear-compiled",
-             "chmod -R 777 public/",
-             "npm install"
+             "chmod -R 777 public/"
          ]
     }
 }
