@@ -59,6 +59,7 @@
     export default {
         props: {
           commerce: String,
+          url:String,
         },
 
         data () {
@@ -78,11 +79,12 @@
             console.clear();
             this.channel = 'order-of-'+this.commerce
             console.log(this.channel);
+            console.log(this.url);
             Echo.channel(this.channel) //Should be Channel Name        
             .listen('OrderShipped', (data) => {
               console.log(data);
                 axios
-                  .get('http://websocketprueba.test/api/v1/ordenes/'+this.commerce)
+                  .get('http://'+this.url+'/api/v1/ordenes/'+this.commerce)
                   .then(response => (
                     console.log(response.data.result),
                     this.orders = response.data.result

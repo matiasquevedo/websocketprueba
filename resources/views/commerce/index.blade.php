@@ -5,7 +5,7 @@
 @section('content')
 <div class="bg-white px-3 py-3 border rounded">
 	<h3>Bienvenido {{$user->name}}!</h3>
-	<ordersview-component commerce="{{$commerce->slug}}"></ordersview-component>
+	<ordersview-component commerce="{{$commerce->slug}}" url="{{env('SITE_URL')}}"></ordersview-component>
 
 </div>
 @endsection
