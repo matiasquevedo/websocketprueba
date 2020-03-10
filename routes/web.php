@@ -10,13 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('socketrun', function () {
 
+    \Artisan::call('websockets:serve --port=25000');
 
-Route::domain(env('SITE_URL', 'websocketprueba.test'))->group(function () {
-	Route::get('/', function () {
-	    return view('welcome');
-	});   
+    dd("websockets's run");
+
 });
+
+Route::get('/', function () {
+	    return view('welcome');
+	});
 
 Route::group(['prefix'=>'commerce','middleware'=>['auth']], function(){
 	Route::get('/{commerceSlug}', 'CommerceController@commerce')->name('commerce.subdomain');

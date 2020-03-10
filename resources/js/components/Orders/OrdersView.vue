@@ -82,7 +82,7 @@
             .listen('OrderShipped', (data) => {
               console.log(data);
                 axios
-                  .get('http://websocketprueba.test/api/ordenes/'+this.commerce)
+                  .get('http://websocketprueba.test/api/v1/ordenes/'+this.commerce)
                   .then(response => (
                     console.log(response.data.result),
                     this.orders = response.data.result
@@ -90,7 +90,7 @@
             });
 
             axios
-                  .get('http://websocketprueba.test/api/ordenes/'+this.commerce)
+                  .get('http://websocketprueba.test/api/v1/ordenes/'+this.commerce)
                   .then(response => (
                     console.log(response.data.result),
                     this.orders = response.data.result

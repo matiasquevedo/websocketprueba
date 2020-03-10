@@ -13,13 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
-Route::get('/ordenes/{commerceSlug}',[
-	'uses'=>'Api\OrderController@index'
-]);
+
 
 // Route::domain('{commerceSlug}.' . env('SITE_URL', 'cartamovil.test'))->group(function () {
 
@@ -28,6 +26,12 @@ Route::get('/ordenes/{commerceSlug}',[
 
 // });
 
+Route::group(['prefix'=>'/v1','middleware' => 'cors'], function(){
+	Route::get('/ordenes/{commerceSlug}',[
+		'uses'=>'Api\OrderController@index'
+	]);
+});
 
 
-Route::resource('orders','Api\OrderController');
+
+// Route::resource('orders','Api\OrderController');
